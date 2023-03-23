@@ -1,11 +1,11 @@
-import style from './styles/confirm.module.css';
-import { doc, updateDoc, deleteField } from 'firebase/firestore';
-import { Variant } from '../../../button/Variant';
-import { Dispatch, SetStateAction } from 'react';
-import { useAppDispatch } from '../../../../context/redux/hooks';
-import { deleteProductFromState } from '../../../../context/redux/productsSlice';
-import { db } from '../../../../context/firebase/Firebase';
-import { CorrectProductType } from '../../../../context/types/type';
+import style from "./styles/confirm.module.css";
+import { doc, updateDoc, deleteField } from "firebase/firestore";
+import { Variant } from "../../button/Variant";
+import { Dispatch, SetStateAction } from "react";
+import { useAppDispatch } from "../../../context/redux/hooks";
+import { deleteProductFromState } from "../../../context/redux/productsSlice";
+import { db } from "../../../context/firebase/Firebase";
+import { CorrectProductType } from "../../../context/types/type";
 
 type ConfirmProps = {
   setIsDeleting: Dispatch<SetStateAction<boolean>>;
@@ -25,7 +25,7 @@ export function Confirm({
   const dispatch = useAppDispatch();
 
   const handleDeleteProduct = async () => {
-    const productRef = doc(db, 'dashboard', 'products');
+    const productRef = doc(db, "dashboard", "products");
     await updateDoc(productRef, {
       [id]: deleteField(),
     });
@@ -47,8 +47,8 @@ export function Confirm({
       <span className={style.name}> {namePL} </span>
       <br />
       <section className={style.box}>
-        <Variant name="TAK" handleClick={handleDeleteProduct} />
-        <Variant name="NIE" handleClick={handleCancel} />
+        <Variant name='TAK' handleClick={handleDeleteProduct} />
+        <Variant name='NIE' handleClick={handleCancel} />
       </section>
     </div>
   );

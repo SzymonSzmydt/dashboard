@@ -1,7 +1,8 @@
 import style from "./styles/product.module.css";
 import { useState, Dispatch, SetStateAction } from "react";
 import { Search } from "../ui/search";
-import { CorrectProductType } from "./../../context/types/type";
+import { useAppSelector } from "../../context/redux/hooks";
+import { CorrectProductType } from "../../context/types/type";
 import { ProductDetailsHead } from "../ui/productDetailsHead";
 import { ProductDetailsBody } from "../ui/productDetailsBody";
 
@@ -16,7 +17,7 @@ export function ListOfProducts({
   setProductSelectedToEdit,
   productSelectedToEdit,
 }: ListProps) {
-  //   const productList = useAppSelector((state) => state.products.value);
+  const productList = useAppSelector((state) => state.products.value);
   const [searchValue, setSearchValue] = useState<string>("");
 
   return (
@@ -27,7 +28,7 @@ export function ListOfProducts({
       </div>
       <div className={style.table}>
         <ProductDetailsHead />
-        {/* {productList?.length > 0
+        {productList?.length > 0
           ? searchValue.length > 0
             ? productList
                 .filter((filtr) =>
@@ -55,7 +56,7 @@ export function ListOfProducts({
                   setProductSelectedToEdit={setProductSelectedToEdit}
                 />
               ))
-          : null} */}
+          : null}
       </div>
     </>
   );
