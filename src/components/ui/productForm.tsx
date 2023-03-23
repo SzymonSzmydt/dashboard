@@ -2,28 +2,15 @@ import add from "./styles/form.module.css";
 import { Dispatch, SetStateAction } from "react";
 import { CorrectProductType } from "../../context/types/type";
 import { useAppSelector } from "../../context/redux/hooks";
+import settings from "../../../JSON/settings.json";
 
 type FormProps = {
   productData: CorrectProductType;
   setProductData: Dispatch<SetStateAction<CorrectProductType>>;
 };
 
-const options = {
-  shipping: [
-    "1-3 dni robocze",
-    "2-5 dni roboczych",
-    "3-7 dni roboczych",
-    "5-10 dni roboczych",
-    "10-21 dni roboczych",
-    "21-30 dni droboczych",
-    "4-6 tygodni",
-  ],
-  delivery: ["9.99", "16.00", "25.00", "30.00", "150.0"],
-};
-
 export function ProductForm({ productData, setProductData }: FormProps) {
-  const { shipping, delivery } = options;
-  const category = useAppSelector((state) => state.products.category);
+  const { shipping, delivery, category } = settings;
 
   const handleChangeInputValue = (
     value: React.ChangeEvent<HTMLInputElement>
