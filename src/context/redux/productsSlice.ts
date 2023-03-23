@@ -1,18 +1,21 @@
-import { CorrectProductType } from './../types/type';
-import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '../../context/redux/store';
+import { CorrectProductType } from "./../types/type";
+import { createSlice } from "@reduxjs/toolkit";
+import type { PayloadAction } from "@reduxjs/toolkit";
+import type { RootState } from "../../context/redux/store";
+import category from "../../../JSON/category.json";
 
 interface ProductsState {
   value: Array<CorrectProductType>;
+  category: Array<string>;
 }
 
 const initialState: ProductsState = {
   value: [],
+  category,
 };
 
 export const productsSlice = createSlice({
-  name: 'products',
+  name: "products",
   initialState,
   reducers: {
     getProducts: (state, action: PayloadAction<Array<CorrectProductType>>) => {

@@ -50,11 +50,16 @@
     position: relative;
 }
 
+.product:hover {
+    box-shadow: var(--shadow);
+}
+
 .product:nth-child(2n + 1) {
     background-color: var(--light-green);
 }
 
 .product .id {
+    padding-left: 0.25rem;
     font-size: 0.8rem;
     font-weight: 400;
 }
