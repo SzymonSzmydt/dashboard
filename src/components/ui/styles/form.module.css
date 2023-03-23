@@ -1,0 +1,89 @@
+.label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.input {
+    display: block;
+    width: 30rem;
+}
+
+.input::placeholder,
+.textarea::placeholder,
+.priceInput::placeholder {
+    font-size: 0.75rem;
+}
+
+.picture {
+    display: block;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.picture::before {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    content: "Wybierz plik";
+    bottom: -2.25rem;
+    left: 0;
+    width: 7rem;
+    height: 2rem;
+    color: var(--background-color);
+    border-radius: var(--radius-dash);
+    background-color: var(--box-color);
+}
+
+.picture:hover::before {
+    background-color: var(--dropdown-title);
+}
+
+.textarea {
+    display: block;
+    appearance: none;
+    width: 30rem;
+    height: 10rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 2px;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0 0.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.priceInput,
+.select {
+    display: block;
+    width: 10rem;
+}
+
+@media screen and (max-width: 560px) {
+    .input {
+        width: 100%;
+    }
+
+    .textarea {
+        width: 100%;
+        padding: 0.25rem;
+    }
+}
+
+@media screen and (max-width: 280px) {
+
+    .input,
+    .priceInput {
+        font-size: 0.85rem;
+    }
+
+    .priceInput {
+        width: 100%;
+    }
+
+    .textarea {
+        font-size: 0.85rem;
+        padding: 0.25rem;
+    }
+}

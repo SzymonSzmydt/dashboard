@@ -1,0 +1,10 @@
+.form label {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.input {
+    display: block;
+    width: 12rem;
+    margin-bottom: 0.75rem;
+}

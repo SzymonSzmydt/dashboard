@@ -1,0 +1,26 @@
+.dropdown {
+    position: absolute;
+    top: 0;
+    right: 1.25rem;
+    background-color: var(--dropdown-body);
+    color: var(--background-color);
+    border-radius: var(--radius-dash) 0 var(--radius-dash) var(--radius-dash);
+    font-size: 0.85rem;
+}
+
+.dropdown ul {
+    padding: 0 1.5rem;
+    list-style-type: none;
+}
+
+.dropdown li {
+    cursor: pointer;
+}
+
+.dropdown li:first-child {
+    margin-bottom: 0.5rem;
+}
+
+.dropdown li:hover {
+    color: var(--primary-color);
+}

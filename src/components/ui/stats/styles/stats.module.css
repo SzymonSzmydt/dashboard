@@ -1,0 +1,17 @@
+.box {
+    margin: 0.75rem 1rem 0.75rem 0;
+    padding: 0 1rem;
+}
+
+.title {
+    margin: 0.25rem 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--dark-color);
+    text-align: center;
+}
+
+.box h2 {
+    text-align: center;
+    color: var(--third-color);
+}

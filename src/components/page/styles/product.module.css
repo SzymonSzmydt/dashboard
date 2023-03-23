@@ -1,0 +1,12 @@
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.table {
+    width: 100%;
+    font-weight: 500;
+}

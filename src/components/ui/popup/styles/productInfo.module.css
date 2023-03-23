@@ -1,0 +1,47 @@
+@keyframes showing {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.wrapper {
+    animation: showing 0.3s ease-out;
+    position: absolute;
+    top: -5rem;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.box {
+    background-color: var(--dropdown-body);
+    border-radius: var(--radius-dash);
+    color: var(--background-color);
+    font-size: 0.95rem;
+}
+
+.title {
+    background-color: var(--dropdown-title);
+    border-radius: var(--radius-dash) var(--radius-dash) 0 0;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+}
+
+.text,
+.text li {
+    padding: 0.5rem 0.25rem;
+    font-weight: 400;
+    color: var(--dropdown-text-b);
+}
+
+.text li {
+    margin-left: 1.5rem;
+}
+
+.text li:nth-child(2n+1) {
+    color: var(--dropdown-text-a);
+}
