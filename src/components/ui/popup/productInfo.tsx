@@ -1,5 +1,5 @@
-import style from './styles/productInfo.module.css';
-import { CorrectProductType } from '../../../../context/types/type';
+import style from "./styles/productInfo.module.css";
+import { CorrectProductType } from "./../../../context/types/type";
 
 export function ProductInfo({ ...product }: CorrectProductType) {
   return (

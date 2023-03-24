@@ -1,7 +1,7 @@
-import style from './styles/dropdown.module.css';
-import { Confirm } from './confirm';
-import { useState, Dispatch, SetStateAction } from 'react';
-import { CorrectProductType } from '../../../../context/types/type';
+import style from "./styles/dropdown.module.css";
+import { Confirm } from "./confirm";
+import { useState, Dispatch, SetStateAction } from "react";
+import { CorrectProductType } from "./../../../context/types/type";
 
 type DropProps = {
   setIsDropdown: Dispatch<SetStateAction<boolean>>;

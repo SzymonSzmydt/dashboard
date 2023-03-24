@@ -3,8 +3,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@next/next/recommended",
-    "prettier"
+    "plugin:@next/next/recommended"
   ],
   "rules": {
     "@typescript-eslint/no-unused-vars": "error",

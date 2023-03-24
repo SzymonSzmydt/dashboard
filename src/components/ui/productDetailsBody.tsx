@@ -1,9 +1,9 @@
-import style from './styles/detail.module.css';
-import { Dispatch, SetStateAction } from 'react';
-import { CorrectProductType } from './../../../context/types/type';
-import { useState } from 'react';
-import { ProductInfo } from '../ui/popup/productInfo';
-import { Dropdown } from './popup/dropdown';
+import style from "./styles/detail.module.css";
+import { Dispatch, SetStateAction } from "react";
+import { CorrectProductType } from "./../../context/types/type";
+import { useState } from "react";
+import { ProductInfo } from "../ui/popup/productInfo";
+import { Dropdown } from "./popup/dropdown";
 
 type DetailProps = {
   product: CorrectProductType;

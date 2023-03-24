@@ -1,7 +1,6 @@
 import add from "./styles/form.module.css";
 import { Dispatch, SetStateAction } from "react";
 import { CorrectProductType } from "../../context/types/type";
-import { useAppSelector } from "../../context/redux/hooks";
 import settings from "../../../JSON/settings.json";
 
 type FormProps = {
