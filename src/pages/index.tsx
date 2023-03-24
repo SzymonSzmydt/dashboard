@@ -1,35 +1,11 @@
-import { useEffect } from "react";
-import WindowDashboard from "src/components/window/windowDashboard";
-import WindowDashboardBar from "src/components/window/windowDashboardBar";
-import { Stats } from "src/components/ui/stats/stats";
-import { getProducts } from "src/context/redux/productsSlice";
-import { useAppDispatch, useAppSelector } from "src/context/redux/hooks";
+import { EmailPass } from "src/components/login/emailPass";
+import style from "../styles/login.module.css";
 
-function Dashboard() {
-  const products = useAppSelector((state) => state.products.value);
-  const dispatch = useAppDispatch();
-
-  const fetchProducts = async () => {
-    const response = await fetch("/api/getProducts");
-    const data = await response.json();
-    dispatch(getProducts(JSON.parse(data || "")));
-  };
-
-  useEffect(() => {
-    if (products.length === 0) fetchProducts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [products]);
-
+export default function Login() {
   return (
-    <>
-      <WindowDashboard>
-        <WindowDashboardBar streach={true}>
-          <Stats title={"Produkty"} stats={products.length} />
-          <Stats title={"Zam. oczekujące"} stats={0} />
-          <Stats title={"Zam. zrealiz."} stats={0} />
-        </WindowDashboardBar>
-      </WindowDashboard>
-    </>
+    <div className={style.login}>
+      <h2>Wymagana autoryzacja</h2>
+      <EmailPass />
+    </div>
   );
 }
-export default Dashboard;

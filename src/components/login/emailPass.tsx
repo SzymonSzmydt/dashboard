@@ -1,29 +1,32 @@
 import style from "./styles/email.module.css";
-import eyeIconOn from "../../public/icons/pass/visibility_on.svg";
-import eyeIconOff from "../../public/icons/pass/visibility_off.svg";
+import eyeIconOn from "../../../public/pass/visibility_on.svg";
+import eyeIconOff from "../../../public/pass/visibility_off.svg";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Variant } from "../button/Variant";
+import signIn from "src/context/firebase/signIn";
 
 type LoginProps = {
   email: string;
   password: string;
 };
 
-type ComponentProps = {
-  path: string;
-};
-
-export function EmailPass({ path }: ComponentProps) {
+export function EmailPass() {
   const [user, setUser] = useState<LoginProps>({ email: "", password: "" });
   const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const { result, error } = await signIn(user.email, user.password);
 
-    return router.push(path);
+    if (error) {
+      return console.log(error);
+    }
+
+    console.log(result);
+    return router.push("/home");
   };
 
   return (
