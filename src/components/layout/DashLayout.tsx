@@ -3,6 +3,7 @@ import Head from "next/head";
 import { Hamburger } from "../button/hamburger";
 import { useState } from "react";
 import Aside from "../page/aside";
+import WindowDashboard from "../window/windowDashboard";
 
 type Props = {
   children: React.ReactNode;
@@ -24,7 +25,7 @@ function DashLayout({ children }: Props) {
           isClicked={isClicked}
         />
         <Aside isClicked={isClicked} />
-        {children}
+        <WindowDashboard>{children}</WindowDashboard>
       </main>
     </>
   );

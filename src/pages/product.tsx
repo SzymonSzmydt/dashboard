@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import WindowDashboard from "src/components/window/windowDashboard";
 import WindowDashboardBar from "src/components/window/windowDashboardBar";
 import WindowDashboardBody from "src/components/window/windowDashboardBody";
 import { ListOfProducts } from "src/components/page/listOfProducts";
@@ -30,43 +29,39 @@ function ProductList() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 
-  return (
+  return products ? (
     <>
-      {products ? (
-        <WindowDashboard>
-          <WindowDashboardBar>
-            {isAddProductClicked ? (
-              <Variant
-                name='Wróć do listy'
-                handleClick={() => setIsAddProductClicked(false)}
-              />
-            ) : (
-              <Variant
-                name={"Dodaj produkt"}
-                handleClick={() => setIsAddProductClicked(true)}
-              />
-            )}
-          </WindowDashboardBar>
-          <WindowDashboardBody>
-            {isAddProductClicked ? (
-              <AddNewProduct
-                productSelectedToEdit={productSelectedToEdit}
-                setProductSelectedToEdit={setProductSelectedToEdit}
-                setIsAddProductClicked={setIsAddProductClicked}
-              />
-            ) : (
-              <ListOfProducts
-                setProductSelectedToEdit={setProductSelectedToEdit}
-                setIsAddProductClicked={setIsAddProductClicked}
-                productSelectedToEdit={productSelectedToEdit}
-              />
-            )}
-          </WindowDashboardBody>
-        </WindowDashboard>
-      ) : (
-        <Spinner />
-      )}
+      <WindowDashboardBar>
+        {isAddProductClicked ? (
+          <Variant
+            name='Wróć do listy'
+            handleClick={() => setIsAddProductClicked(false)}
+          />
+        ) : (
+          <Variant
+            name={"Dodaj produkt"}
+            handleClick={() => setIsAddProductClicked(true)}
+          />
+        )}
+      </WindowDashboardBar>
+      <WindowDashboardBody>
+        {isAddProductClicked ? (
+          <AddNewProduct
+            productSelectedToEdit={productSelectedToEdit}
+            setProductSelectedToEdit={setProductSelectedToEdit}
+            setIsAddProductClicked={setIsAddProductClicked}
+          />
+        ) : (
+          <ListOfProducts
+            setProductSelectedToEdit={setProductSelectedToEdit}
+            setIsAddProductClicked={setIsAddProductClicked}
+            productSelectedToEdit={productSelectedToEdit}
+          />
+        )}
+      </WindowDashboardBody>
     </>
+  ) : (
+    <Spinner />
   );
 }
 

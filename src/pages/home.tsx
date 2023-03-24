@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import WindowDashboard from "src/components/window/windowDashboard";
 import WindowDashboardBar from "src/components/window/windowDashboardBar";
 import { Stats } from "src/components/ui/stats/stats";
 import { getProducts } from "src/context/redux/productsSlice";
@@ -22,13 +21,11 @@ function Dashboard() {
 
   return (
     <>
-      <WindowDashboard>
-        <WindowDashboardBar streach={true}>
-          <Stats title={"Produkty"} stats={products.length} />
-          <Stats title={"Zam. oczekujące"} stats={0} />
-          <Stats title={"Zam. zrealiz."} stats={0} />
-        </WindowDashboardBar>
-      </WindowDashboard>
+      <WindowDashboardBar streach={true}>
+        <Stats title={"Produkty"} stats={products.length} />
+        <Stats title={"Zam. oczekujące"} stats={0} />
+        <Stats title={"Zam. zrealiz."} stats={0} />
+      </WindowDashboardBar>
     </>
   );
 }
