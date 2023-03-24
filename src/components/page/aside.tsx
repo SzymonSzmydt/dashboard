@@ -27,7 +27,7 @@ function Aside({ isClicked }: AsideProps) {
         <span className={aside.small}>administracyjny</span>
       </section>
       <p className={aside.category}>ANALITYKA</p>
-      <LinkBox name='Home' path='/' image={home} />
+      <LinkBox name='Home' path='/home' image={home} />
       <LinkBox name='Zam. zrealizowane' path='/realized' image={realized} />
       <p className={aside.category}>ZARZĄDZANIE</p>
       <LinkBox name='Lista produktów' path='/product' image={list} />
