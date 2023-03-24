@@ -8,6 +8,7 @@ import { Variant } from "src/components/button/Variant";
 import AddNewProduct from "src/components/page/addProduct";
 import { useAppDispatch, useAppSelector } from "src/context/redux/hooks";
 import { getProducts } from "src/context/redux/productsSlice";
+import { Spinner } from "src/components/ui/spinner";
 
 function ProductList() {
   const dispatch = useAppDispatch();
@@ -31,36 +32,40 @@ function ProductList() {
 
   return (
     <>
-      <WindowDashboard>
-        <WindowDashboardBar>
-          {isAddProductClicked ? (
-            <Variant
-              name='Wróć do listy'
-              handleClick={() => setIsAddProductClicked(false)}
-            />
-          ) : (
-            <Variant
-              name={"Dodaj produkt"}
-              handleClick={() => setIsAddProductClicked(true)}
-            />
-          )}
-        </WindowDashboardBar>
-        <WindowDashboardBody>
-          {isAddProductClicked ? (
-            <AddNewProduct
-              productSelectedToEdit={productSelectedToEdit}
-              setProductSelectedToEdit={setProductSelectedToEdit}
-              setIsAddProductClicked={setIsAddProductClicked}
-            />
-          ) : (
-            <ListOfProducts
-              setProductSelectedToEdit={setProductSelectedToEdit}
-              setIsAddProductClicked={setIsAddProductClicked}
-              productSelectedToEdit={productSelectedToEdit}
-            />
-          )}
-        </WindowDashboardBody>
-      </WindowDashboard>
+      {products ? (
+        <WindowDashboard>
+          <WindowDashboardBar>
+            {isAddProductClicked ? (
+              <Variant
+                name='Wróć do listy'
+                handleClick={() => setIsAddProductClicked(false)}
+              />
+            ) : (
+              <Variant
+                name={"Dodaj produkt"}
+                handleClick={() => setIsAddProductClicked(true)}
+              />
+            )}
+          </WindowDashboardBar>
+          <WindowDashboardBody>
+            {isAddProductClicked ? (
+              <AddNewProduct
+                productSelectedToEdit={productSelectedToEdit}
+                setProductSelectedToEdit={setProductSelectedToEdit}
+                setIsAddProductClicked={setIsAddProductClicked}
+              />
+            ) : (
+              <ListOfProducts
+                setProductSelectedToEdit={setProductSelectedToEdit}
+                setIsAddProductClicked={setIsAddProductClicked}
+                productSelectedToEdit={productSelectedToEdit}
+              />
+            )}
+          </WindowDashboardBody>
+        </WindowDashboard>
+      ) : (
+        <Spinner />
+      )}
     </>
   );
 }
