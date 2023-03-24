@@ -19,7 +19,7 @@
 
 .pass {
     position: relative;
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
 }
 
 .visibility {
@@ -32,10 +32,12 @@
 
 .btn {
     display: grid;
+    margin: 0 auto;
+    padding: 0;
 }
 
-@media screen and (max-width: 260px) {
+@media screen and (max-width: 320px) {
     .form {
-        width: calc(100% - 2rem);
+        width: 100%;
     }
 }
