@@ -3,6 +3,7 @@ import WindowDashboardBar from "src/components/window/windowDashboardBar";
 import { Stats } from "src/components/ui/stats/stats";
 import { getProducts } from "src/context/redux/productsSlice";
 import { useAppDispatch, useAppSelector } from "src/context/redux/hooks";
+import DashLayout from "src/components/layout/DashLayout";
 
 function Dashboard() {
   const products = useAppSelector((state) => state.products.value);
@@ -20,13 +21,13 @@ function Dashboard() {
   }, [products]);
 
   return (
-    <>
+    <DashLayout>
       <WindowDashboardBar streach={true}>
         <Stats title={"Produkty"} stats={products.length} />
         <Stats title={"Zam. oczekujące"} stats={0} />
         <Stats title={"Zam. zrealiz."} stats={0} />
       </WindowDashboardBar>
-    </>
+    </DashLayout>
   );
 }
 export default Dashboard;

@@ -8,6 +8,7 @@ import AddNewProduct from "src/components/page/addProduct";
 import { useAppDispatch, useAppSelector } from "src/context/redux/hooks";
 import { getProducts } from "src/context/redux/productsSlice";
 import { Spinner } from "src/components/ui/spinner";
+import DashLayout from "src/components/layout/DashLayout";
 
 function ProductList() {
   const dispatch = useAppDispatch();
@@ -30,7 +31,7 @@ function ProductList() {
   }, [products]);
 
   return products ? (
-    <>
+    <DashLayout>
       <WindowDashboardBar>
         {isAddProductClicked ? (
           <Variant
@@ -59,7 +60,7 @@ function ProductList() {
           />
         )}
       </WindowDashboardBody>
-    </>
+    </DashLayout>
   ) : (
     <Spinner />
   );
