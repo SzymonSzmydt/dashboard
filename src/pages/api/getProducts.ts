@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { doc, getDoc } from "firebase/firestore";
-import { db } from "./auth/Firebase";
+import { db } from "src/context/firebase/Firebase";
 
 export default async function handler(
   req: NextApiRequest,

@@ -4,8 +4,8 @@ import { Variant } from "../../button/Variant";
 import { Dispatch, SetStateAction } from "react";
 import { useAppDispatch } from "../../../context/redux/hooks";
 import { deleteProductFromState } from "../../../context/redux/productsSlice";
-import { db } from "../../../pages/api/auth/Firebase";
 import { CorrectProductType } from "../../../context/types/type";
+import { db } from "src/context/firebase/Firebase";
 
 interface ConfirmProps {
   setIsDeleting: Dispatch<SetStateAction<boolean>>;
