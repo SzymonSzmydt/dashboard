@@ -22,6 +22,14 @@
     padding: 1.5rem 0;
 }
 
+.h2 {
+    margin: 0 0.5rem;
+}
+
+.p {
+    font-size: 1.35rem;
+}
+
 @media screen and (max-width: 800px) {
     .main {
         width: 100%;
