@@ -1,3 +1,4 @@
+"use client";
 import style from "./styles/email.module.css";
 import eyeIconOn from "../../../public/pass/visibility_on.svg";
 import eyeIconOff from "../../../public/pass/visibility_off.svg";
@@ -5,7 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Variant } from "../button/Variant";
-import signIn from "src/pages/api/auth/signIn";
+import signIn from "src/context/firebase/signIn";
 
 interface LoginProps {
   email: string;
@@ -24,7 +25,6 @@ export function EmailPass() {
     if (error) {
       return console.log(error);
     }
-
     console.log(result);
     return router.push("/home");
   };
