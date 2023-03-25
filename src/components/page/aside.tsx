@@ -6,6 +6,7 @@ import list from "../../../public/list.svg";
 import panel from "../../../public/panel.svg";
 import Image from "next/image";
 import { LinkBox } from "../ui/LinkBox";
+import logout from "../../../public/logout.svg";
 
 interface AsideProps {
   isClicked: boolean;
@@ -32,6 +33,11 @@ function Aside({ isClicked }: AsideProps) {
       <p className={aside.category}>ZARZĄDZANIE</p>
       <LinkBox name='Lista produktów' path='/product' image={list} />
       <LinkBox name='Zam. oczekujące' path='/orders' image={handshake} />
+
+      <section className={aside.logout}>
+        <p className={aside.category}>PAMIĘTAJ</p>
+        <LinkBox name='Wyloguj się' path='' image={logout} />
+      </section>
     </aside>
   );
 }

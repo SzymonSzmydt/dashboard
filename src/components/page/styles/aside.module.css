@@ -11,6 +11,7 @@
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    position: relative;
 }
 
 .box {
@@ -47,6 +48,11 @@
 .category {
     margin: 2.55rem 2.5rem 1rem;
     color: var(--dark-color);
+}
+
+.logout {
+    position: absolute;
+    bottom: 3rem;
 }
 
 @media screen and (max-width: 800px) {
