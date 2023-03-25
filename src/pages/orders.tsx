@@ -4,12 +4,12 @@ import DashLayout from "src/components/layout/DashLayout";
 import { useAuthContext } from "src/context/firebase/AuthContext";
 
 function Orders() {
-  const { user } = useAuthContext();
+  const { email } = useAuthContext();
   const router = useRouter();
 
   useEffect(() => {
-    if (user == null) router.push("/");
-  }, [router, user]);
+    if (email == null) router.push("/");
+  }, [router, email]);
 
   return (
     <DashLayout>

@@ -4,12 +4,12 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 function Realized() {
-  const { user } = useAuthContext();
+  const { email } = useAuthContext();
   const router = useRouter();
 
   useEffect(() => {
-    if (user == null) router.push("/");
-  }, [user, router]);
+    if (email == null) router.push("/");
+  }, [email, router]);
 
   return (
     <DashLayout>

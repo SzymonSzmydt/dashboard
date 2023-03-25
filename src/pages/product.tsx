@@ -19,12 +19,12 @@ function ProductList() {
   const [productSelectedToEdit, setProductSelectedToEdit] =
     useState<CorrectProductType>({} as CorrectProductType);
 
-  const { user } = useAuthContext();
+  const { email } = useAuthContext();
   const router = useRouter();
 
   useEffect(() => {
-    if (user == null) router.push("/");
-  }, [router, user]);
+    if (email == null) router.push("/");
+  }, [router, email]);
 
   const fetchProducts = async () => {
     const response = await fetch("/api/getProducts");
