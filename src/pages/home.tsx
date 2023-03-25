@@ -4,10 +4,19 @@ import { Stats } from "src/components/ui/stats/stats";
 import { getProducts } from "src/context/redux/productsSlice";
 import { useAppDispatch, useAppSelector } from "src/context/redux/hooks";
 import DashLayout from "src/components/layout/DashLayout";
+import { useAuthContext } from "src/context/firebase/AuthContext";
+import { useRouter } from "next/router";
 
 function Dashboard() {
   const products = useAppSelector((state) => state.products.value);
   const dispatch = useAppDispatch();
+
+  const { user } = useAuthContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user == null) router.push("/");
+  }, [router, user]);
 
   const fetchProducts = async () => {
     const response = await fetch("/api/getProducts");

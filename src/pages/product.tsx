@@ -9,6 +9,8 @@ import { useAppDispatch, useAppSelector } from "src/context/redux/hooks";
 import { getProducts } from "src/context/redux/productsSlice";
 import { Spinner } from "src/components/ui/spinner";
 import DashLayout from "src/components/layout/DashLayout";
+import { useAuthContext } from "src/context/firebase/AuthContext";
+import { useRouter } from "next/router";
 
 function ProductList() {
   const dispatch = useAppDispatch();
@@ -16,6 +18,13 @@ function ProductList() {
   const [isAddProductClicked, setIsAddProductClicked] = useState(false);
   const [productSelectedToEdit, setProductSelectedToEdit] =
     useState<CorrectProductType>({} as CorrectProductType);
+
+  const { user } = useAuthContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user == null) router.push("/");
+  }, [router, user]);
 
   const fetchProducts = async () => {
     const response = await fetch("/api/getProducts");
