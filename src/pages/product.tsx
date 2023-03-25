@@ -23,7 +23,7 @@ function ProductList() {
   const router = useRouter();
 
   useEffect(() => {
-    if (email == null) router.push("/");
+    if (!email) router.push("/");
   }, [router, email]);
 
   const fetchProducts = async () => {

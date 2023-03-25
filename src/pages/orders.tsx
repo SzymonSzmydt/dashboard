@@ -8,7 +8,7 @@ function Orders() {
   const router = useRouter();
 
   useEffect(() => {
-    if (email == null) router.push("/");
+    if (!email) router.push("/");
   }, [router, email]);
 
   return (

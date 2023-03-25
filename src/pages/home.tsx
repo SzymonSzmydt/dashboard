@@ -15,13 +15,13 @@ function Dashboard() {
   const router = useRouter();
 
   useEffect(() => {
-    if (email == null) router.push("/");
+    if (!email) router.push("/");
   }, [router, email]);
 
   const fetchProducts = async () => {
     const response = await fetch("/api/getProducts");
     const data = await response.json();
-    dispatch(getProducts(JSON.parse(data || "")));
+    dispatch(getProducts(data));
   };
 
   useEffect(() => {

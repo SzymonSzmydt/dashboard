@@ -8,8 +8,8 @@ function Realized() {
   const router = useRouter();
 
   useEffect(() => {
-    if (email == null) router.push("/");
-  }, [email, router]);
+    if (!email) router.push("/");
+  }, [router, email]);
 
   return (
     <DashLayout>
