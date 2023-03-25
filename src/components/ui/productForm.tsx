@@ -3,10 +3,10 @@ import { Dispatch, SetStateAction } from "react";
 import { CorrectProductType } from "../../context/types/type";
 import settings from "../../../JSON/settings.json";
 
-type FormProps = {
+interface FormProps {
   productData: CorrectProductType;
   setProductData: Dispatch<SetStateAction<CorrectProductType>>;
-};
+}
 
 export function ProductForm({ productData, setProductData }: FormProps) {
   const { shipping, delivery, category } = settings;

@@ -7,9 +7,9 @@ import panel from "../../../public/panel.svg";
 import Image from "next/image";
 import { LinkBox } from "../ui/LinkBox";
 
-type AsideProps = {
+interface AsideProps {
   isClicked: boolean;
-};
+}
 
 function Aside({ isClicked }: AsideProps) {
   const asideBackMove = isClicked ? aside.asideOn : aside.aside;

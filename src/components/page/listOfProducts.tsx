@@ -6,11 +6,11 @@ import { CorrectProductType } from "../../context/types/type";
 import { ProductDetailsHead } from "../ui/productDetailsHead";
 import { ProductDetailsBody } from "../ui/productDetailsBody";
 
-type ListProps = {
+interface ListProps {
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
   setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
   productSelectedToEdit: CorrectProductType;
-};
+}
 
 export function ListOfProducts({
   setIsAddProductClicked,

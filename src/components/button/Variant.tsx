@@ -1,9 +1,9 @@
-import btn from './style/btn.module.css';
+import btn from "./style/btn.module.css";
 
-type VariantProps = {
+interface VariantProps {
   handleClick?: () => void;
   name: string;
-};
+}
 
 export function Variant({ name, handleClick }: VariantProps) {
   return (

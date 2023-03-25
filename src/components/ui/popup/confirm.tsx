@@ -4,16 +4,16 @@ import { Variant } from "../../button/Variant";
 import { Dispatch, SetStateAction } from "react";
 import { useAppDispatch } from "../../../context/redux/hooks";
 import { deleteProductFromState } from "../../../context/redux/productsSlice";
-import { db } from "../../../context/firebase/Firebase";
+import { db } from "../../../pages/api/auth/Firebase";
 import { CorrectProductType } from "../../../context/types/type";
 
-type ConfirmProps = {
+interface ConfirmProps {
   setIsDeleting: Dispatch<SetStateAction<boolean>>;
   setIsDropdown: Dispatch<SetStateAction<boolean>>;
   setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
   id: number;
   namePL: string;
-};
+}
 
 export function Confirm({
   setProductSelectedToEdit,

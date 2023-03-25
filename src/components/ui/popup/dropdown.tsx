@@ -3,12 +3,12 @@ import { Confirm } from "./confirm";
 import { useState, Dispatch, SetStateAction } from "react";
 import { CorrectProductType } from "./../../../context/types/type";
 
-type DropProps = {
+interface DropProps {
   setIsDropdown: Dispatch<SetStateAction<boolean>>;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
   productSelectedToEdit: CorrectProductType;
   setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
-};
+}
 
 export function Dropdown({
   setIsDropdown,

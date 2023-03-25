@@ -1,19 +1,19 @@
-import link from './styles/link.module.css';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import link from "./styles/link.module.css";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-type ImgProp = {
+interface ImgProp {
   src: string;
   width: number;
   height: number;
-};
+}
 
-type Props = {
+interface Props {
   image: ImgProp;
   name: string;
   path: string;
-};
+}
 
 export function LinkBox({ name, path, image }: Props) {
   const { pathname } = useRouter();

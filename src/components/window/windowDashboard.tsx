@@ -1,9 +1,9 @@
 import wind from "./window.module.css";
 import WindowDashboardBar from "./windowDashboardBar";
 
-type WindowProps = {
+interface WindowProps {
   children: React.ReactNode;
-};
+}
 
 function WindowDashboard({ children }: WindowProps) {
   return (

@@ -1,10 +1,10 @@
 import style from "./styles/stats.module.css";
 import { Spinner } from "../spinner";
 
-type StatsProps = {
+interface StatsProps {
   title: string;
   stats: number;
-};
+}
 
 export function Stats({ title, stats }: StatsProps) {
   return (

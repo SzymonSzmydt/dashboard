@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { db } from "../../context/firebase/Firebase";
+import { db } from "./auth/Firebase";
 import { setDoc, doc } from "firebase/firestore";
 import type { Body } from "../../context/types/type";
 

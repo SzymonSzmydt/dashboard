@@ -5,12 +5,12 @@ import { useState } from "react";
 import { ProductInfo } from "../ui/popup/productInfo";
 import { Dropdown } from "./popup/dropdown";
 
-type DetailProps = {
+interface DetailProps {
   product: CorrectProductType;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
   productSelectedToEdit: CorrectProductType;
   setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
-};
+}
 
 export function ProductDetailsBody({
   product,

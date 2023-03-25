@@ -1,9 +1,9 @@
-import burg from './style/burg.module.css';
+import burg from "./style/burg.module.css";
 
-type BurgProps = {
+interface BurgProps {
   handleClick: () => void;
   isClicked: boolean;
-};
+}
 
 export function Hamburger({ handleClick, isClicked }: BurgProps) {
   const isBurgerClicked = isClicked ? burg.burgerOn : burg.burger;

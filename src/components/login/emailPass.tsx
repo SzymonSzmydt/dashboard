@@ -5,12 +5,12 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { Variant } from "../button/Variant";
-import signIn from "src/context/firebase/signIn";
+import signIn from "src/pages/api/auth/signIn";
 
-type LoginProps = {
+interface LoginProps {
   email: string;
   password: string;
-};
+}
 
 export function EmailPass() {
   const [user, setUser] = useState<LoginProps>({ email: "", password: "" });
@@ -35,6 +35,7 @@ export function EmailPass() {
       <input
         type='text'
         name='email'
+        value={user.email}
         className={style.input}
         autoComplete='on'
         required
@@ -48,6 +49,7 @@ export function EmailPass() {
         <input
           type={isVisible ? "text" : "password"}
           name='password'
+          value={user.password}
           className={style.input}
           autoComplete='on'
           required

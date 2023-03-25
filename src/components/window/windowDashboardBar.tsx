@@ -1,9 +1,9 @@
-import wind from './window.module.css';
+import wind from "./window.module.css";
 
-type WindowProps = {
+interface WindowProps {
   children: React.ReactNode;
   streach?: boolean;
-};
+}
 
 function WindowDashboardBar({ streach, children }: WindowProps) {
   const style = streach ? wind.streach : wind.bar;

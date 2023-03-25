@@ -5,9 +5,9 @@ import { useState } from "react";
 import Aside from "../page/aside";
 import WindowDashboard from "../window/windowDashboard";
 
-type Props = {
+interface Props {
   children: React.ReactNode;
-};
+}
 
 function DashLayout({ children }: Props) {
   const [isClicked, setIsClicked] = useState<boolean>(false);

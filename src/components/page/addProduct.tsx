@@ -2,6 +2,8 @@ import { Variant } from "../button/Variant";
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import { CorrectProductType } from "./../../context/types/type";
 import { ProductForm } from "../ui/productForm";
+import { useAppDispatch } from "src/context/redux/hooks";
+import { modyfyProductState } from "src/context/redux/productsSlice";
 
 const initialState: CorrectProductType = {
   id: 0,
@@ -23,18 +25,18 @@ const initialState: CorrectProductType = {
   weight: "",
 };
 
-type AddProps = {
+interface AddProps {
   productSelectedToEdit: CorrectProductType;
   setIsAddProductClicked: Dispatch<SetStateAction<boolean>>;
   setProductSelectedToEdit: Dispatch<SetStateAction<CorrectProductType>>;
-};
+}
 
 function AddNewProduct({
   productSelectedToEdit,
   setIsAddProductClicked,
   setProductSelectedToEdit,
 }: AddProps) {
-  //   const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
   const [productData, setProductData] =
     useState<CorrectProductType>(initialState);
@@ -56,9 +58,9 @@ function AddNewProduct({
         "Content-Type": "application/json",
       },
     });
-    // if (productData.id > 0) {
-    //   dispatch(modyfyProductState(productData));
-    // }
+    if (productData.id > 0) {
+      dispatch(modyfyProductState(productData));
+    }
 
     setProductData(initialState);
     setIsAddProductClicked(false);

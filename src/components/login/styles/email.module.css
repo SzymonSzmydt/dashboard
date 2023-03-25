@@ -25,8 +25,9 @@
 .visibility {
     cursor: pointer;
     position: absolute;
-    width: 1rem;
-    top: -0.5rem;
+    width: auto;
+    height: auto;
+    top: 0.5rem;
     right: 0.5rem;
 }
 
