@@ -3,6 +3,7 @@ import { Arimo } from "next/font/google";
 import type { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { store } from "src/context/redux/store";
+import { AuthContextProvider } from "src/context/firebase/AuthContext";
 
 const inter = Arimo({ subsets: ["latin"] });
 
@@ -14,9 +15,11 @@ export default function App({ Component, pageProps }: AppProps) {
           font-family: ${inter.style.fontFamily};
         }
       `}</style>
-      <Provider store={store}>
+      <AuthContextProvider>
+        <Provider store={store}>
           <Component {...pageProps} />
-      </Provider>
+        </Provider>
+      </AuthContextProvider>
     </>
   );
 }
