@@ -6,6 +6,10 @@ import { useAppDispatch, useAppSelector } from "src/context/redux/hooks";
 import DashLayout from "src/components/layout/DashLayout";
 import { useAuthContext } from "src/context/firebase/AuthContext";
 import { useRouter } from "next/router";
+import { CorrectProductType } from "../context/types/type";
+
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "src/context/firebase/Firebase";
 
 function Dashboard() {
   const products = useAppSelector((state) => state.products.value);
@@ -19,13 +23,20 @@ function Dashboard() {
   }, [router, email]);
 
   const fetchProducts = async () => {
-    const response = await fetch("/api/getProducts");
-    const data = await response.json();
-    dispatch(getProducts(data));
+    // const response = await fetch("/api/getProducts");
+    // const data = await response.json();
+
+    const docSnap = await getDoc(doc(db, "dashboard", "products"));
+
+    if (docSnap.exists()) {
+      const data: CorrectProductType[] = Object.values(docSnap.data());
+      dispatch(getProducts(data));
+    }
+    // dispatch(getProducts(data));
   };
 
   useEffect(() => {
-    if (products.length === 0) fetchProducts();
+    if (products.length === 0 && email) fetchProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 
