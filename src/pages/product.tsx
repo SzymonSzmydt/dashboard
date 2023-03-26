@@ -7,7 +7,6 @@ import { Variant } from "src/components/button/Variant";
 import AddNewProduct from "src/components/page/addProduct";
 import { useAppDispatch, useAppSelector } from "src/context/redux/hooks";
 import { getProducts } from "src/context/redux/productsSlice";
-import { Spinner } from "src/components/ui/spinner";
 import DashLayout from "src/components/layout/DashLayout";
 import { useAuthContext } from "src/context/firebase/AuthContext";
 import { useRouter } from "next/router";

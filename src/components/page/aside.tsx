@@ -8,7 +8,7 @@ import Image from "next/image";
 import { LinkBox } from "../ui/LinkBox";
 import logout from "../../../public/logout.svg";
 import { signOut } from "firebase/auth";
-import { auth } from "src/context/firebase/Firebase";
+import { authentication } from "src/context/firebase/Firebase";
 
 interface AsideProps {
   isClicked: boolean;
@@ -43,7 +43,7 @@ function Aside({ isClicked }: AsideProps) {
           name='Wyloguj się'
           path=''
           image={logout}
-          handleClick={() => signOut(auth)}
+          handleClick={() => signOut(authentication)}
         />
       </section>
     </aside>

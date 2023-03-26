@@ -7,7 +7,6 @@ import DashLayout from "src/components/layout/DashLayout";
 import { useAuthContext } from "src/context/firebase/AuthContext";
 import { useRouter } from "next/router";
 import { CorrectProductType } from "../context/types/type";
-
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "src/context/firebase/Firebase";
 
@@ -20,27 +19,24 @@ function Dashboard() {
 
   useEffect(() => {
     if (!email) router.push("/");
-  }, [router, email]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [email]);
 
   const fetchProducts = async () => {
-    // const response = await fetch("/api/getProducts");
-    // const data = await response.json();
-
     const docSnap = await getDoc(doc(db, "dashboard", "products"));
 
     if (docSnap.exists()) {
       const data: CorrectProductType[] = Object.values(docSnap.data());
       dispatch(getProducts(data));
     }
-    // dispatch(getProducts(data));
   };
 
   useEffect(() => {
-    if (products.length === 0 && email) fetchProducts();
+    if (products.length === 0 && email && email.length > 0) fetchProducts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 
-  return email ? (
+  return email && email.length > 0 ? (
     <DashLayout>
       <WindowDashboardBar streach={true}>
         <Stats title={"Produkty"} stats={products.length} />

@@ -69,7 +69,6 @@
 .product .name {
     color: var(--dropdown-body);
     font-weight: 500;
-    font-family: Georgia, serif
 }
 
 .product .price {

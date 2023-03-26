@@ -20,12 +20,11 @@ export function EmailPass() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { result, error } = await signIn(user.email, user.password);
+    const { error } = await signIn(user.email, user.password);
 
     if (error) {
-      return console.log(error);
+      return console.error(error);
     }
-    console.log(result);
     return router.push("/home");
   };
 
