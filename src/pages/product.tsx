@@ -39,7 +39,7 @@ function ProductList() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 
-  return products ? (
+  return email ? (
     <DashLayout>
       <WindowDashboardBar>
         {isAddProductClicked ? (
@@ -70,9 +70,7 @@ function ProductList() {
         )}
       </WindowDashboardBody>
     </DashLayout>
-  ) : (
-    <Spinner />
-  );
+  ) : null;
 }
 
 export default ProductList;

@@ -11,10 +11,10 @@ function Realized() {
     if (!email) router.push("/");
   }, [router, email]);
 
-  return (
+  return email ? (
     <DashLayout>
       <h1>Realized</h1>
     </DashLayout>
-  );
+  ) : null;
 }
 export default Realized;

@@ -29,7 +29,7 @@ function Dashboard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 
-  return (
+  return email ? (
     <DashLayout>
       <WindowDashboardBar streach={true}>
         <Stats title={"Produkty"} stats={products.length} />
@@ -37,6 +37,6 @@ function Dashboard() {
         <Stats title={"Zam. zrealiz."} stats={0} />
       </WindowDashboardBar>
     </DashLayout>
-  );
+  ) : null;
 }
 export default Dashboard;

@@ -11,11 +11,11 @@ function Orders() {
     if (!email) router.push("/");
   }, [router, email]);
 
-  return (
+  return email ? (
     <DashLayout>
       <h1> Orders Page</h1>;
     </DashLayout>
-  );
+  ) : null;
 }
 
 export default Orders;
