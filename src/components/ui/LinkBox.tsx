@@ -13,13 +13,14 @@ interface Props {
   image: ImgProp;
   name: string;
   path: string;
+  handleClick?: () => void;
 }
 
-export function LinkBox({ name, path, image }: Props) {
+export function LinkBox({ name, path, image, handleClick }: Props) {
   const { pathname } = useRouter();
 
   return pathname !== path ? (
-    <Link href={path} className={link.link}>
+    <Link href={path} className={link.link} onClick={handleClick}>
       <Image src={image} alt={name} className={link.icon} />
       {name}
     </Link>
