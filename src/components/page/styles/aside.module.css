@@ -1,4 +1,7 @@
 .aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 22rem;
     height: 100vh;
     border-right: 1px solid var(--semi-color);
@@ -21,9 +24,7 @@
     line-height: 1rem;
     margin: 0 2rem 3rem;
     padding: 2rem 0 1rem;
-
     color: var(--box-color);
-
     border-bottom: 1px solid var(--semi-color);
 }
 
@@ -51,8 +52,7 @@
 }
 
 .logout {
-    position: absolute;
-    bottom: 3rem;
+    margin: 1rem 0 3rem;
 }
 
 @media screen and (max-width: 800px) {

@@ -18,23 +18,25 @@ function Aside({ isClicked }: AsideProps) {
   const asideBackMove = isClicked ? aside.asideOn : aside.aside;
   return (
     <aside className={asideBackMove}>
-      <section className={aside.box}>
-        <div className={aside.title}>
-          <Image
-            src={panel}
-            alt='Panel administracyjny'
-            className={aside.panelIcon}
-          />
-          Panel
+      <section>
+        <div className={aside.box}>
+          <div className={aside.title}>
+            <Image
+              src={panel}
+              alt='Panel administracyjny'
+              className={aside.panelIcon}
+            />
+            Panel
+          </div>
+          <span className={aside.small}>administracyjny</span>
         </div>
-        <span className={aside.small}>administracyjny</span>
+        <p className={aside.category}>ANALITYKA</p>
+        <LinkBox name='Home' path='/home' image={home} />
+        <LinkBox name='Zam. zrealizowane' path='/realized' image={realized} />
+        <p className={aside.category}>ZARZĄDZANIE</p>
+        <LinkBox name='Lista produktów' path='/product' image={list} />
+        <LinkBox name='Zam. oczekujące' path='/orders' image={handshake} />
       </section>
-      <p className={aside.category}>ANALITYKA</p>
-      <LinkBox name='Home' path='/home' image={home} />
-      <LinkBox name='Zam. zrealizowane' path='/realized' image={realized} />
-      <p className={aside.category}>ZARZĄDZANIE</p>
-      <LinkBox name='Lista produktów' path='/product' image={list} />
-      <LinkBox name='Zam. oczekujące' path='/orders' image={handshake} />
       <section className={aside.logout}>
         <p className={aside.category}>PAMIĘTAJ</p>
         <LinkBox
