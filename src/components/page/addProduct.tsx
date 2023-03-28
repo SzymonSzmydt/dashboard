@@ -1,9 +1,11 @@
 import { Variant } from "../button/Variant";
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
-import { CorrectProductType } from "./../../context/types/type";
 import { ProductForm } from "../ui/productForm";
 import { useAppDispatch } from "src/context/redux/hooks";
 import { modyfyProductState } from "src/context/redux/productsSlice";
+import { CorrectProductType } from "../../context/types/type";
+import { completStructureOfProduct } from "./pageSettings/types";
+import { sendProductsToFirebase, getUniqueId } from "./pageSettings/hooks";
 
 const initialState: CorrectProductType = {
   id: 0,
@@ -51,14 +53,22 @@ function AddNewProduct({
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await fetch("/api/postProduct", {
-      method: "POST",
-      body: JSON.stringify(productData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+
+    if (productData.id === 0) {
+      const uniqueId = getUniqueId();
+      setProductData({ ...productData, id: uniqueId });
+
+      const data: completStructureOfProduct = {
+        [uniqueId]: productData,
+      };
+      sendProductsToFirebase(data);
+    }
+
     if (productData.id > 0) {
+      const data: completStructureOfProduct = {
+        [productData.id]: productData,
+      };
+      sendProductsToFirebase(data);
       dispatch(modyfyProductState(productData));
     }
 
