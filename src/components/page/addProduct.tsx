@@ -29,8 +29,14 @@ const initialState: CorrectProductType = {
   image1: "",
   image2: "",
   image3: "",
+  image4: "",
+  image5: "",
   weight: "",
 };
+
+function getUniqueId(): number {
+  return Date.now();
+}
 
 interface AddProps {
   productSelectedToEdit: CorrectProductType;
@@ -56,7 +62,7 @@ function AddNewProduct({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [productSelectedToEdit]);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (productData.id === 0) {
@@ -82,6 +88,8 @@ function AddNewProduct({
     setIsAddProductClicked(false);
   };
 
+  console.log(productData.id);
+
   return (
     <>
       <h2> Informacje o produkcie</h2>
@@ -98,7 +106,3 @@ function AddNewProduct({
 }
 
 export default AddNewProduct;
-
-export function getUniqueId(): number {
-  return Date.now();
-}

@@ -11,6 +11,14 @@ interface FormProps {
 export function ProductForm({ productData, setProductData }: FormProps) {
   const { shipping, delivery, category } = settings;
 
+  const productImagesNames: Array<keyof typeof productData> = [
+    "image1",
+    "image2",
+    "image3",
+    "image4",
+    "image5",
+  ];
+
   const handleChangeInputValue = (
     value: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -229,41 +237,22 @@ export function ProductForm({ productData, setProductData }: FormProps) {
           })
         }
       />
-      <label className={add.label}>Zdjęcie produktu nr 1</label>
-      <input
-        type='text'
-        name='image1'
-        required
-        minLength={5}
-        className={add.input}
-        value={productData.image1}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleChangeInputValue(e)
-        }
-      />
-      <label className={add.label}>Zdjęcie produktu nr 2</label>
-      <input
-        type='text'
-        name='image2'
-        required
-        minLength={5}
-        className={add.input}
-        value={productData.image2}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleChangeInputValue(e)
-        }
-      />
-      <label className={add.label}>Zdjęcie produktu nr 3</label>
-      <input
-        type='text'
-        name='image3'
-        minLength={3}
-        className={add.input}
-        value={productData.image3}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-          handleChangeInputValue(e)
-        }
-      />
+      {productImagesNames.map((imageName, index) => (
+        <section key={imageName}>
+          <label className={add.label}>Zdjęcie produktu nr {index + 1}</label>
+          <input
+            type='text'
+            name={imageName}
+            required
+            minLength={3}
+            className={add.input}
+            value={productData[imageName]}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              handleChangeInputValue(e)
+            }
+          />
+        </section>
+      ))}
     </>
   );
 }

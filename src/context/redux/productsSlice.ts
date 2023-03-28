@@ -46,6 +46,9 @@ export const productsSlice = createSlice({
         modyfyProduct.image1 = action.payload.image1;
         modyfyProduct.image2 = action.payload.image2;
         modyfyProduct.image3 = action.payload.image3;
+        modyfyProduct.image4 = action.payload.image4;
+        modyfyProduct.image5 = action.payload.image5;
+        modyfyProduct.image6 = action.payload.image6;
         modyfyProduct.weight = action.payload.weight;
       }
     },
