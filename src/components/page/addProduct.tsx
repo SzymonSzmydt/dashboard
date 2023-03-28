@@ -2,7 +2,10 @@ import { Variant } from "../button/Variant";
 import { useState, useEffect, Dispatch, SetStateAction } from "react";
 import { ProductForm } from "../ui/productForm";
 import { useAppDispatch } from "src/context/redux/hooks";
-import { modyfyProductState } from "src/context/redux/productsSlice";
+import {
+  modyfyProductState,
+  pushNewProductToState,
+} from "src/context/redux/productsSlice";
 import { CorrectProductType } from "../../context/types/type";
 import { completStructureOfProduct } from "./pageSettings/types";
 import { sendProductsToFirebase, getUniqueId } from "./pageSettings/hooks";
@@ -62,6 +65,7 @@ function AddNewProduct({
         [uniqueId]: productData,
       };
       sendProductsToFirebase(data);
+      dispatch(pushNewProductToState(productData));
     }
 
     if (productData.id > 0) {
