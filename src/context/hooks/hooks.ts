@@ -1,6 +1,6 @@
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "../../../context/firebase/Firebase";
-import { completStructureOfProduct } from "./types";
+import { db } from "../firebase/Firebase";
+import { completStructureOfProduct } from "../types/type";
 
 export const sendProductsToFirebase = async (
   product: completStructureOfProduct
@@ -10,6 +10,4 @@ export const sendProductsToFirebase = async (
   });
 };
 
-export function getUniqueId(): number {
-  return Date.now();
-}
+

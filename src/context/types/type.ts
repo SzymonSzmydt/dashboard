@@ -31,3 +31,7 @@ export interface BasketData {
   weight: number;
   delivery: number;
 }
+
+export interface completStructureOfProduct {
+  [key: number]: CorrectProductType;
+}

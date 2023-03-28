@@ -22,7 +22,7 @@ function Dashboard() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [email]);
 
-  const fetchProducts = async () => {
+  const fetchProductsFromFirebase = async () => {
     const docSnap = await getDoc(doc(db, "dashboard", "products"));
 
     if (docSnap.exists()) {
@@ -32,7 +32,9 @@ function Dashboard() {
   };
 
   useEffect(() => {
-    if (products.length === 0 && email && email.length > 0) fetchProducts();
+    if (products.length === 0 && email && email.length > 0) {
+      fetchProductsFromFirebase();
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
 

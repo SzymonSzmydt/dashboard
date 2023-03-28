@@ -6,9 +6,11 @@ import {
   modyfyProductState,
   pushNewProductToState,
 } from "src/context/redux/productsSlice";
-import { CorrectProductType } from "../../context/types/type";
-import { completStructureOfProduct } from "./pageSettings/types";
-import { sendProductsToFirebase, getUniqueId } from "./pageSettings/hooks";
+import {
+  CorrectProductType,
+  completStructureOfProduct,
+} from "../../context/types/type";
+import { sendProductsToFirebase } from "../../context/hooks/hooks";
 
 const initialState: CorrectProductType = {
   id: 0,
@@ -96,3 +98,7 @@ function AddNewProduct({
 }
 
 export default AddNewProduct;
+
+export function getUniqueId(): number {
+  return Date.now();
+}

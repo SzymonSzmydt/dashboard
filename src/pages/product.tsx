@@ -10,6 +10,8 @@ import { getProducts } from "src/context/redux/productsSlice";
 import DashLayout from "src/components/layout/DashLayout";
 import { useAuthContext } from "src/context/firebase/AuthContext";
 import { useRouter } from "next/router";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "src/context/firebase/Firebase";
 
 function ProductList() {
   const dispatch = useAppDispatch();
@@ -25,15 +27,18 @@ function ProductList() {
     if (!email) router.push("/");
   }, [router, email]);
 
-  const fetchProducts = async () => {
-    const response = await fetch("/api/getProducts");
-    const data = await response.json();
-    dispatch(getProducts(JSON.parse(data || "")));
+  const fetchProductsFromFirebase = async () => {
+    const docSnap = await getDoc(doc(db, "dashboard", "products"));
+
+    if (docSnap.exists()) {
+      const data: CorrectProductType[] = Object.values(docSnap.data());
+      dispatch(getProducts(data));
+    }
   };
 
   useEffect(() => {
     if (products.length === 0) {
-      fetchProducts();
+      fetchProductsFromFirebase;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products]);
