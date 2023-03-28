@@ -67,10 +67,11 @@ function AddNewProduct({
 
     if (productData.id === 0) {
       const uniqueId = getUniqueId();
-      setProductData({ ...productData, id: uniqueId });
+      const newProductData = structuredClone(productData);
+      newProductData.id = uniqueId;
 
       const data: completStructureOfProduct = {
-        [uniqueId]: productData,
+        [uniqueId]: newProductData,
       };
       sendProductsToFirebase(data);
       dispatch(pushNewProductToState(productData));
@@ -87,8 +88,6 @@ function AddNewProduct({
     setProductData(initialState);
     setIsAddProductClicked(false);
   };
-
-  console.log(productData.id);
 
   return (
     <>

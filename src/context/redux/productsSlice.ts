@@ -32,6 +32,7 @@ export const productsSlice = createSlice({
         (product) => product.id === action.payload.id
       );
       if (modyfyProduct) {
+        modyfyProduct.id = action.payload.id;
         modyfyProduct.priceEU = action.payload.priceEU;
         modyfyProduct.pricePL = action.payload.pricePL;
         modyfyProduct.category = action.payload.category;
@@ -48,7 +49,6 @@ export const productsSlice = createSlice({
         modyfyProduct.image3 = action.payload.image3;
         modyfyProduct.image4 = action.payload.image4;
         modyfyProduct.image5 = action.payload.image5;
-        modyfyProduct.image6 = action.payload.image6;
         modyfyProduct.weight = action.payload.weight;
       }
     },
